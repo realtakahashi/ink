@@ -21,7 +21,6 @@ mod storage;
 #[cfg(test)]
 mod tests;
 
-#[cfg(test)]
 use self::iter::Entries;
 pub use self::iter::{
     Iter,
@@ -200,12 +199,7 @@ where
     }
 
     /// Returns an iterator yielding shared references to all entries of the stash.
-    ///
-    /// # Note
-    ///
-    /// This is an internal API mainly used for testing the storage stash.
-    #[cfg(test)]
-    fn entries(&self) -> Entries<T> {
+    pub fn entries(&self) -> Entries<T> {
         Entries::new(self)
     }
 
